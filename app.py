@@ -17,6 +17,7 @@ class_names = ['A','B','C','D']
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 image_path = 'static\\uploads'
+app.config['UPLOAD_FOLDER'] = dir_path
 
 model_brain = load_model(os.path.join(dir_path,'model\\TUMOR-1.h5'))
 model_tuberculosis = load_model(os.path.join(dir_path,'model\\TUMOR-1.h5'))
@@ -56,7 +57,7 @@ def predict():
             flash('No file part')
             return redirect(request.url)
 
-        file = request.files['file']
+        file = request.files['file'] 
         type_disease=(request.form['illness']).lower()
 
         if file.filename == '':
@@ -65,11 +66,11 @@ def predict():
         
         if file:
             file_name = secure_filename(file.filename)
-            file_path = os.path.join(dir_path,image_path,file_name)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'],image_path,file_name)
             file.save(file_path)
             result = test_on_image(file_path,type_disease)
 
-    return render_template('predict.html',output =result)
+    return render_template('predict.html',output =result,img_pth=file_name)
 
 
 
