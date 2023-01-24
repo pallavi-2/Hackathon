@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>AiDoc</title>
+        <link rel="stylesheet" href="../static/css/index.css">
+    </head>
+
+    <body>
+        <nav id='navigation'>
+            <ul id='brandLogo'>
+                <li><a href="#" style='font-size: 25px; padding-left: 35px'> AiDoc </a></li>
+                <li style='float: right'><a href="#"> Home </a></li>
+                <li style='float: right'><a href="#"> Services </a></li>
+                <li style='float: right'> <a href="#"> Blog </a></li>
+            </ul>
+
+        </nav>
+
+
+        <section id="upper-part">
+            <div class='first_image'>
+                <img src='../static/images/ai-image.png'>
+            </div>
+            <div>
+                <h2> Welcome To AiDOC</h2>
+                <p> Revolutionizing healthcare with cutting-edge image recognition technology</p>
+            </div>
+        </section>
+
+
+        <!-- Pallavi Here is the Section You Will be Interested in  -->
+        <section id='second-section'>
+            <div class='heading'>
+                <h2> Our Services</h2>
+                <p> Diagnose Tuberculosis, Pneumonia, and Cancer </p>
+            </div>
+
+            <div class='card1 card'>
+                <div class='brain'>
+                    <a href="#">
+                        <h2> Diagnose Brain Cancer</h2>
+                    </a>
+                </div>
+
+                <!-- This Submission si for Brain -->
+
+
+
+            </div>
+            <!-- This submission is for Tuberculosis -->
+            <div class='card2 card'>
+                <div class='tuberculosis'>
+                    <a href="#">
+                        <h2> Diagnose Tuberculosis</h2>
+                    </a>
+                </div>
+
+
+            </div>
+            <!-- Thus Submission is for Cancer -->
+            <div class='card3 card'>
+                <div class='cancer'>
+                    <a href="#">
+                        <h2> Diagnose Cancer</h2>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <section id="submission-section">
+
+            <div id="submit-illness">
+                <div>
+
+                    <h2> Three Steps Solutions </h2>
+                    <ul>
+                        <li> Choose a Problem to Be Diagnosed </li>
+                        <li> Upload the Relevant Image </li>
+                        <li> Submit </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id='submission-form'>
+                <form method="post" action="/predict" id="uploadFile" enctype="multipart/form-data">
+                    <div id='first'>
+                        <label for="fname">First name:</label><br>
+                        <input type="text" id="fname" name="fname" value="John">
+                    </div>
+
+                    <div id='second'>
+                        <label for="lname">Last name:</label><br>
+                        <input type="text" id="lname" name="lname" value="Doe">
+                    </div>
+
+                    <div id='third'>
+                        <label for="number">Phone Number:</label><br>
+                        <input type="tel" id="number" name="number" value="Doe">
+                    </div>
+
+                    <div id='fourth'>
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address" value="Doe">
+                    </div>
+                    
+                    <div id='fifth'>
+                        <label for="illness">Choose Illness :</label>
+
+                        <select name="illness" id="illness" required>
+                            <option value="Tuberculosis">Tuberculosis</option>
+                            <option value="Cancer">Cancer</option>
+                            <option value="Brain">Brain</option>
+                        </select>
+                    </div>
+
+                    <div id='sixth'>
+                        <input type="file" id="myFile" name="file" required>
+                    </div>
+
+                    <div id='seventh'>
+                        <input type="submit" value="Submit">
+
+                    </div>
+
+
+                </form>
+
+
+
+            </div>
+
+
+
+        </section>
+
+    </body>
+
+</html>
