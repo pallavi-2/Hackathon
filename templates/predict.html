@@ -1,18 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>
-        this is the predicted result
-    </p>
-    <img src="../static/uploads/{{imagepath}}" alt="" srcset="">
-    <p>
-        {{output}}
-    </p>
-</body>
+<html>
+
+    <head>
+        <title>AiDoc</title>
+        <link rel='stylesheet' href='../static/css/prediction.css'>
+        <link rel="stylesheet" href="../static/css/index.css">
+
+    </head>
+
+    <body>
+        <nav id='navigation'>
+            <ul id='brandLogo'>
+                <li><a href="../templates/index.html" style='font-size: 25px; padding-left: 35px'> AiDoc </a></li>
+                <li style='float: right'><a href="#"> Home </a></li>
+                <li style='float: right'><a href="#"> Services </a></li>
+                <li style='float: right'> <a href="#"> Blog </a></li>
+            </ul>
+
+        </nav>
+
+
+        <section id='image-prediction'>
+            <div class='image'>
+                <img id='scan-image' src='../static/uploads/{{img_pth}}'>
+            </div>
+
+            <div id='description'> <span id='chances'> 90 </span> percentage probability of <span id='diseases'>
+                    {{final}}
+                </span> </div>
+        </section>
+
+        <footer id='footer' style='margin-top: 250px;'>
+
+            <div id='contact-us'>
+                <ul>
+                    <h2>Contact Us</h2>
+
+                    <li> Number: 9860103809 </li>
+                    <li> Email: aidoc@gmail.com</li>
+                </ul>
+            </div>
+
+            <div id="read-blogs">
+                <ul>
+                    <h2> Read Our Blogs</h2>
+
+                    <li> <a href='#'>On Image Recognitions</a></li>
+                    <li><a href='#'>Success Stories</a></li>
+                </ul>
+
+
+
+            </div>
+
+
+
+        </footer>
+    </body>
+
 </html>

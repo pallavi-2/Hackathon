@@ -309,20 +309,22 @@ body {
 
 /* Hover Effects Ends here */
 #second-section .card1 .brain {
-    background-image: url('brain.jpg');
-    object-fit: scale-down;
+    background-image: url('../images/brain-tumor.jpg');
+    /* object-fit: scale-down; */
     grid-row: 1/12;
+    background-size: cover;
+
 }
 
 #second-section .card2 .tuberculosis {
-    background-image: url('tuberculosis.jpg');
-    object-fit: scale-down;
+    background-image: url('../images/tuberculosis.jpg');
+    background-size: cover;
     grid-row: 1/12;
 }
 
 #second-section .card3 .cancer {
-    background-image: url('tuberculosis.jpg');
-    object-fit: scale-down;
+    background-image: url('../images/pneumonia.png');
+    background-size: cover;
     grid-row: 1/12;
 }
 

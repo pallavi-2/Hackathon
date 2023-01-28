@@ -13,18 +13,23 @@ import tensorflow as tf
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "verysecret##.."
 
-class_names = ['A','B','C','D']
+class_pneumonia = ['Normal','Pneumonia']
+class_tuberculosis = ["Tuberculosis" ,'Normal']
+class_tumor = ['Giloma','Meningioma','No tumor', 'Pituitary']
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-image_path = 'static\\uploads'
+image_path = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = dir_path
 
-model_brain = load_model(os.path.join(dir_path,'model\\TUMOR-1.h5'))
-model_tuberculosis = load_model(os.path.join(dir_path,'model\\TUMOR-1.h5'))
-model_cancer = load_model(os.path.join(dir_path,'model\\TUMOR-1.h5'))
 
-##model
-def test_on_image(img_path,type):
+#load the models
+model_brain = load_model(os.path.join(dir_path,'model/Brain-tumor.h5'))
+model_tuberculosis = load_model(os.path.join(dir_path,'model/TB.h5'))
+model_pneumonia= load_model(os.path.join(dir_path,'model/PNEUMONIA.h5'))
+
+
+#model
+def test_on_image(img_path):
     test_image = tf.keras.utils.load_img(img_path, target_size=(240,240))
     test_image = tf.keras.utils.img_to_array(test_image)
     #print(type(test_image))
@@ -34,17 +39,15 @@ def test_on_image(img_path,type):
 
     if(type=='brain'):
         result = model_brain.predict(test_image)
+        p = max(result.tolist())
+        output = class_tumor[p.index(max(p))]
+        return output
+    # print(type(result))
 
-    if(type=='tuberculosis'):
-        result = model_tuberculosis.predict(test_image)
-
-    if(type=='cancer'):
-        result = model_cancer.predict(test_image)
-    #print(type(result))
-    p = max(result.tolist())
-    return(class_names[p.index(max(p))])
+    return(output)  
 
 
+#routes
 @app.route('/')
 def home_page():
     return render_template('index.html')
@@ -58,7 +61,6 @@ def predict():
             return redirect(request.url)
 
         file = request.files['file'] 
-        type_disease=(request.form['illness']).lower()
 
         if file.filename == '':
             flash('No selected file')
@@ -68,9 +70,9 @@ def predict():
             file_name = secure_filename(file.filename)
             file_path = os.path.join(app.config['UPLOAD_FOLDER'],image_path,file_name)
             file.save(file_path)
-            result = test_on_image(file_path,type_disease)
+            result = test_on_image(file_path)
 
-    return render_template('predict.html',output =result,img_pth=file_name)
+    return render_template('predict.html',final=result,img_pth=file_name)
 
 
 
