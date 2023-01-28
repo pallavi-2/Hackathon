@@ -9,6 +9,7 @@
 
 #scan-image{
     width: 400px;
+    border-radius: 2px;
 }
 
 #description {
@@ -33,4 +34,6 @@
 
 #diseases {
     padding-left: 5px;
+    color: #ee6d4a;
+    font-size: 20px;
 }

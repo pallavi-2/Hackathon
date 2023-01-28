@@ -13,8 +13,6 @@ import tensorflow as tf
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "verysecret##.."
 
-class_pneumonia = ['Normal','Pneumonia']
-class_tuberculosis = ["Tuberculosis" ,'Normal']
 class_tumor = ['Giloma','Meningioma','No tumor', 'Pituitary']
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -24,9 +22,6 @@ app.config['UPLOAD_FOLDER'] = dir_path
 
 #load the models
 model_brain = load_model(os.path.join(dir_path,'model/Brain-tumor.h5'))
-model_tuberculosis = load_model(os.path.join(dir_path,'model/TB.h5'))
-model_pneumonia= load_model(os.path.join(dir_path,'model/PNEUMONIA.h5'))
-
 
 #model
 def test_on_image(img_path):
@@ -37,12 +32,9 @@ def test_on_image(img_path):
     test_image = test_image.reshape(240, 240, 3)
     test_image = np.expand_dims(test_image, axis=0) 
 
-    if(type=='brain'):
-        result = model_brain.predict(test_image)
-        p = max(result.tolist())
-        output = class_tumor[p.index(max(p))]
-        return output
-    # print(type(result))
+    result = model_brain.predict(test_image)
+    p = max(result.tolist())
+    output = class_tumor[p.index(max(p))]
 
     return(output)  
 

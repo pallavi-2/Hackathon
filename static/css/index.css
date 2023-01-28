@@ -317,13 +317,13 @@ body {
 }
 
 #second-section .card2 .tuberculosis {
-    background-image: url('../images/tuberculosis.jpg');
+    background-image: url('../images/pituitory.png');
     background-size: cover;
     grid-row: 1/12;
 }
 
 #second-section .card3 .cancer {
-    background-image: url('../images/pneumonia.png');
+    background-image: url('../images/glioma.jpg');
     background-size: cover;
     grid-row: 1/12;
 }
@@ -342,10 +342,11 @@ body {
 
 #second-section .heading p {
     font-size: 14px;
-    padding-top: 5px;
-    padding-left: 5px;
+    padding-top: 26px;
+    padding-left: 60px;
     font-weight: 400;
-    color: #1d3f6d
+    color: #1d3f6d;
+    
 }
 
 
