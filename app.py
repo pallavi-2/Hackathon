@@ -13,7 +13,7 @@ import tensorflow as tf
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "verysecret##.."
 
-class_tumor = ['Giloma','Meningioma','No tumor', 'Pituitary']
+class_tumor = ['Glioma','Meningioma','No tumor', 'Pituitary']
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 image_path = 'static/uploads'
